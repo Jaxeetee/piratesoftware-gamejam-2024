@@ -93,7 +93,7 @@ public class InputManager : MonoBehaviour
 
         map.Tertiary.performed += ctx =>
         {
-            float value = ctx.ReadValue<float();
+            float value = ctx.ReadValue<float>();
             onTertiary?.Invoke(value);
         };
         #endregion
@@ -142,7 +142,7 @@ public class InputManager : MonoBehaviour
 
         map.Tertiary.canceled += ctx =>
         {
-            float value = ctx.ReadValue<float();
+            float value = ctx.ReadValue<float>();
             onTertiary?.Invoke(value);
         };
         #endregion
