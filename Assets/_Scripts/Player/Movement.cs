@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -5,9 +8,21 @@ public class Movement : MonoBehaviour
     private InputManager _inputs;
 
     [SerializeField]
-    private float _movementSpeed = 5f;
+    private float _movementSpeed = 15f;
+
+    //TODO dash
+    [SerializeField]
+    private float _dashSpeed = .125f;
+
+    [SerializeField]
+    private float _dashDistance = 10f;
+
+    [SerializeField]
+    private float _dashCooldown = 3f;
 
     private Vector2 _movementInput;
+    private bool _onDashCooldown = false;
+    private bool _isDashing = false;
 
     private void Awake()
     {
@@ -24,16 +39,33 @@ public class Movement : MonoBehaviour
     private void OnEnable()
     {
         _inputs.onMovementUpdate += OnMovementInput;
+        _inputs.onDash += OnDashPerformed;
     }
 
     private void OnDisable()
     {
         _inputs.onMovementUpdate -= OnMovementInput;
+        _inputs.onDash -= OnDashPerformed;
     }
 
     private void Update()
     {
-        transform.Translate(_movementInput * _movementSpeed * Time.deltaTime);
+        
+        if (!_isDashing)
+        {
+            transform.Translate(_movementInput * _movementSpeed * Time.deltaTime);
+        }
+        else 
+        {
+            if (!_onDashCooldown)
+            {
+                transform.position = Vector2.Lerp((Vector2)transform.position, (Vector2)transform.position + _movementInput * _dashDistance, _dashSpeed * Time.deltaTime);
+                StartCoroutine(DashCooldown());
+            }
+            
+            _isDashing = false;
+        }
+
     }
 
 #region -== INPUTS ==-
@@ -43,6 +75,29 @@ public class Movement : MonoBehaviour
     {
         if (IsInputNull()) return;
         _movementInput = axis;
+    }
+
+    private void OnDashPerformed(float value)
+    {
+        if (IsInputNull()) return;
+        if (value == 1) 
+        {
+            _isDashing = true;
+        }
+    }
+
+    private IEnumerator DashCooldown()
+    {
+        float elapsedTime = 0f;
+        _onDashCooldown = true;
+        while (elapsedTime < _dashCooldown)
+        {
+            Debug.Log("Cooling down");
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        _onDashCooldown = false;
+        Debug.Log("Cooldown finished");
     }
 #endregion
 }

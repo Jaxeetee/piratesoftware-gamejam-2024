@@ -32,6 +32,7 @@ public class CursorPosition : MonoBehaviour
     private void Start()
     {
         _mainCam = Camera.main;
+        Cursor.visible = false;
         if (_cursorType == CursorType.Gameplay)
         {
             //TODO use the cursor for gameplay
