@@ -92,12 +92,10 @@ public class Movement : MonoBehaviour
         _onDashCooldown = true;
         while (elapsedTime < _dashCooldown)
         {
-            Debug.Log("Cooling down");
             elapsedTime += Time.deltaTime;
             yield return null;
         }
         _onDashCooldown = false;
-        Debug.Log("Cooldown finished");
     }
 #endregion
 }
