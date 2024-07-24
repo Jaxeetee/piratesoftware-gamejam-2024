@@ -16,38 +16,11 @@
                 },
                 {
                     "name": "Throw",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "19cfa4a9-54e4-4348-abb5-4feee163aedc",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Primary",
-                    "type": "Button",
-                    "id": "258d5607-3b88-4d3f-b4b1-8f26cd3c2235",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Secondary",
-                    "type": "Button",
-                    "id": "ff4590bb-d3cb-4ab8-b905-9459d4d5e975",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Tertiary",
-                    "type": "Button",
-                    "id": "3819cbbb-fcc4-4f83-a6e6-aa40ff6900e9",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Tap",
                     "initialStateCheck": false
                 },
                 {
@@ -72,6 +45,60 @@
                     "name": "Dash",
                     "type": "PassThrough",
                     "id": "d7813e58-cc6b-4ff0-a4c0-f46ee502af87",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "FirstSlot",
+                    "type": "Button",
+                    "id": "258d5607-3b88-4d3f-b4b1-8f26cd3c2235",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SecondSlot",
+                    "type": "Button",
+                    "id": "ff4590bb-d3cb-4ab8-b905-9459d4d5e975",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ThirdSlot",
+                    "type": "Button",
+                    "id": "3819cbbb-fcc4-4f83-a6e6-aa40ff6900e9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "FourthSlot",
+                    "type": "Button",
+                    "id": "c5eab311-5209-441d-969c-70d0c37a954d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "FifthSlot",
+                    "type": "Button",
+                    "id": "f0461685-3d04-4bc1-8ba3-ea09eeb0cd1a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "38aef5bf-92ce-48d9-8b3d-9701d9f6d2fa",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -147,39 +174,6 @@
                 },
                 {
                     "name": "",
-                    "id": "81ba836c-9696-48c0-87d6-47353c54308d",
-                    "path": "<Keyboard>/1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Primary",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "cc3cd178-488b-4ecb-bd7d-950a7dfa9d6e",
-                    "path": "<Keyboard>/2",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Secondary",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "042e39bd-6371-4643-b038-33335bbd9a1c",
-                    "path": "<Keyboard>/3",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Tertiary",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "b1fd6df8-7521-460b-90fa-50b0696a2169",
                     "path": "<Mouse>/scroll/y",
                     "interactions": "",
@@ -208,6 +202,72 @@
                     "processors": "",
                     "groups": "",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "81ba836c-9696-48c0-87d6-47353c54308d",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FirstSlot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cc3cd178-488b-4ecb-bd7d-950a7dfa9d6e",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SecondSlot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "042e39bd-6371-4643-b038-33335bbd9a1c",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ThirdSlot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c62e2efb-5efb-4aff-927e-4b0acb3ffa5f",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FourthSlot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "76a12196-f266-476a-92dc-6b8ffac01dc8",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FifthSlot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2b4f192f-b3b2-44c0-b734-61405ae6a597",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

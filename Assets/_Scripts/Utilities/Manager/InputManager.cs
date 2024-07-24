@@ -19,9 +19,8 @@ public class InputManager : MonoBehaviour
     public event Action<float> onMouseClicked;
     public event Action<float> onMouseScrolled;
     public event Action<float> onDash;
-    public event Action<float> onPrimary;
-    public event Action<float> onSecondary;
-    public event Action<float> onTertiary;
+    public event Action<float, int> onEquip;
+    public event Action<float> onEscape;
 
     private void Start()
     {
@@ -83,22 +82,40 @@ public class InputManager : MonoBehaviour
             onDash?.Invoke(value);
         };
 
-        map.Primary.performed += ctx =>
+        map.FirstSlot.performed += ctx =>
         {
             float value = ctx.ReadValue<float>();
-            onPrimary?.Invoke(value);
+            onEquip?.Invoke(value, 1);
         };
 
-        map.Secondary.performed += ctx =>
+        map.SecondSlot.performed += ctx =>
         {
             float value = ctx.ReadValue<float>();
-            onSecondary?.Invoke(value);
+            onEquip?.Invoke(value, 2);
         };
 
-        map.Tertiary.performed += ctx =>
+        map.ThirdSlot.performed += ctx =>
         {
             float value = ctx.ReadValue<float>();
-            onTertiary?.Invoke(value);
+            onEquip?.Invoke(value, 3);
+        };
+
+        map.FourthSlot.performed += ctx =>
+        {
+            float value = ctx.ReadValue<float>();
+            onEquip?.Invoke(value, 4);
+        };
+
+        map.FifthSlot.performed += ctx =>
+        {
+            float value = ctx.ReadValue<float>();
+            onEquip?.Invoke(value, 5);
+        };
+
+        map.Pause.performed += ctx =>
+        {
+            float value = ctx.ReadValue<float>();
+            onEscape?.Invoke(value);
         };
         #endregion
         #region --== canceled ==--
@@ -132,22 +149,40 @@ public class InputManager : MonoBehaviour
             onDash?.Invoke(value);
         };
 
-        map.Primary.canceled += ctx =>
+        map.FirstSlot.canceled += ctx =>
         {
             float value = ctx.ReadValue<float>();
-            onPrimary?.Invoke(value);
+            onEquip?.Invoke(value, 1);
         };
 
-        map.Secondary.canceled += ctx =>
+        map.SecondSlot.canceled += ctx =>
         {
             float value = ctx.ReadValue<float>();
-            onSecondary?.Invoke(value);
+            onEquip?.Invoke(value, 2);
         };
 
-        map.Tertiary.canceled += ctx =>
+        map.ThirdSlot.canceled += ctx =>
         {
             float value = ctx.ReadValue<float>();
-            onTertiary?.Invoke(value);
+            onEquip?.Invoke(value, 3);
+        };
+
+        map.FourthSlot.canceled += ctx =>
+        {
+            float value = ctx.ReadValue<float>();
+            onEquip?.Invoke(value, 4);
+        };
+
+        map.FifthSlot.canceled += ctx =>
+        {
+            float value = ctx.ReadValue<float>();
+            onEquip?.Invoke(value, 5);
+        };
+        
+        map.Pause.canceled += ctx =>
+        {
+            float value = ctx.ReadValue<float>();
+            onEscape?.Invoke(value);
         };
         #endregion
     }

@@ -38,38 +38,11 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Throw"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""19cfa4a9-54e4-4348-abb5-4feee163aedc"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press"",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Primary"",
-                    ""type"": ""Button"",
-                    ""id"": ""258d5607-3b88-4d3f-b4b1-8f26cd3c2235"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press"",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Secondary"",
-                    ""type"": ""Button"",
-                    ""id"": ""ff4590bb-d3cb-4ab8-b905-9459d4d5e975"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press"",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Tertiary"",
-                    ""type"": ""Button"",
-                    ""id"": ""3819cbbb-fcc4-4f83-a6e6-aa40ff6900e9"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Tap"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -94,6 +67,60 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""name"": ""Dash"",
                     ""type"": ""PassThrough"",
                     ""id"": ""d7813e58-cc6b-4ff0-a4c0-f46ee502af87"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FirstSlot"",
+                    ""type"": ""Button"",
+                    ""id"": ""258d5607-3b88-4d3f-b4b1-8f26cd3c2235"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondSlot"",
+                    ""type"": ""Button"",
+                    ""id"": ""ff4590bb-d3cb-4ab8-b905-9459d4d5e975"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ThirdSlot"",
+                    ""type"": ""Button"",
+                    ""id"": ""3819cbbb-fcc4-4f83-a6e6-aa40ff6900e9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FourthSlot"",
+                    ""type"": ""Button"",
+                    ""id"": ""c5eab311-5209-441d-969c-70d0c37a954d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FifthSlot"",
+                    ""type"": ""Button"",
+                    ""id"": ""f0461685-3d04-4bc1-8ba3-ea09eeb0cd1a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""38aef5bf-92ce-48d9-8b3d-9701d9f6d2fa"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -169,39 +196,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""81ba836c-9696-48c0-87d6-47353c54308d"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Primary"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cc3cd178-488b-4ecb-bd7d-950a7dfa9d6e"",
-                    ""path"": ""<Keyboard>/2"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Secondary"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""042e39bd-6371-4643-b038-33335bbd9a1c"",
-                    ""path"": ""<Keyboard>/3"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Tertiary"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""b1fd6df8-7521-460b-90fa-50b0696a2169"",
                     ""path"": ""<Mouse>/scroll/y"",
                     ""interactions"": """",
@@ -232,6 +226,72 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""81ba836c-9696-48c0-87d6-47353c54308d"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FirstSlot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cc3cd178-488b-4ecb-bd7d-950a7dfa9d6e"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondSlot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""042e39bd-6371-4643-b038-33335bbd9a1c"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThirdSlot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c62e2efb-5efb-4aff-927e-4b0acb3ffa5f"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FourthSlot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""76a12196-f266-476a-92dc-6b8ffac01dc8"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FifthSlot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2b4f192f-b3b2-44c0-b734-61405ae6a597"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -258,12 +318,15 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Throw = m_Player.FindAction("Throw", throwIfNotFound: true);
-        m_Player_Primary = m_Player.FindAction("Primary", throwIfNotFound: true);
-        m_Player_Secondary = m_Player.FindAction("Secondary", throwIfNotFound: true);
-        m_Player_Tertiary = m_Player.FindAction("Tertiary", throwIfNotFound: true);
         m_Player_Switch = m_Player.FindAction("Switch", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
+        m_Player_FirstSlot = m_Player.FindAction("FirstSlot", throwIfNotFound: true);
+        m_Player_SecondSlot = m_Player.FindAction("SecondSlot", throwIfNotFound: true);
+        m_Player_ThirdSlot = m_Player.FindAction("ThirdSlot", throwIfNotFound: true);
+        m_Player_FourthSlot = m_Player.FindAction("FourthSlot", throwIfNotFound: true);
+        m_Player_FifthSlot = m_Player.FindAction("FifthSlot", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Movement = m_UI.FindAction("Movement", throwIfNotFound: true);
@@ -330,24 +393,30 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Throw;
-    private readonly InputAction m_Player_Primary;
-    private readonly InputAction m_Player_Secondary;
-    private readonly InputAction m_Player_Tertiary;
     private readonly InputAction m_Player_Switch;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Dash;
+    private readonly InputAction m_Player_FirstSlot;
+    private readonly InputAction m_Player_SecondSlot;
+    private readonly InputAction m_Player_ThirdSlot;
+    private readonly InputAction m_Player_FourthSlot;
+    private readonly InputAction m_Player_FifthSlot;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @Inputs m_Wrapper;
         public PlayerActions(@Inputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Throw => m_Wrapper.m_Player_Throw;
-        public InputAction @Primary => m_Wrapper.m_Player_Primary;
-        public InputAction @Secondary => m_Wrapper.m_Player_Secondary;
-        public InputAction @Tertiary => m_Wrapper.m_Player_Tertiary;
         public InputAction @Switch => m_Wrapper.m_Player_Switch;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
+        public InputAction @FirstSlot => m_Wrapper.m_Player_FirstSlot;
+        public InputAction @SecondSlot => m_Wrapper.m_Player_SecondSlot;
+        public InputAction @ThirdSlot => m_Wrapper.m_Player_ThirdSlot;
+        public InputAction @FourthSlot => m_Wrapper.m_Player_FourthSlot;
+        public InputAction @FifthSlot => m_Wrapper.m_Player_FifthSlot;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -363,15 +432,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @Throw.started += instance.OnThrow;
             @Throw.performed += instance.OnThrow;
             @Throw.canceled += instance.OnThrow;
-            @Primary.started += instance.OnPrimary;
-            @Primary.performed += instance.OnPrimary;
-            @Primary.canceled += instance.OnPrimary;
-            @Secondary.started += instance.OnSecondary;
-            @Secondary.performed += instance.OnSecondary;
-            @Secondary.canceled += instance.OnSecondary;
-            @Tertiary.started += instance.OnTertiary;
-            @Tertiary.performed += instance.OnTertiary;
-            @Tertiary.canceled += instance.OnTertiary;
             @Switch.started += instance.OnSwitch;
             @Switch.performed += instance.OnSwitch;
             @Switch.canceled += instance.OnSwitch;
@@ -381,6 +441,24 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
+            @FirstSlot.started += instance.OnFirstSlot;
+            @FirstSlot.performed += instance.OnFirstSlot;
+            @FirstSlot.canceled += instance.OnFirstSlot;
+            @SecondSlot.started += instance.OnSecondSlot;
+            @SecondSlot.performed += instance.OnSecondSlot;
+            @SecondSlot.canceled += instance.OnSecondSlot;
+            @ThirdSlot.started += instance.OnThirdSlot;
+            @ThirdSlot.performed += instance.OnThirdSlot;
+            @ThirdSlot.canceled += instance.OnThirdSlot;
+            @FourthSlot.started += instance.OnFourthSlot;
+            @FourthSlot.performed += instance.OnFourthSlot;
+            @FourthSlot.canceled += instance.OnFourthSlot;
+            @FifthSlot.started += instance.OnFifthSlot;
+            @FifthSlot.performed += instance.OnFifthSlot;
+            @FifthSlot.canceled += instance.OnFifthSlot;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -391,15 +469,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @Throw.started -= instance.OnThrow;
             @Throw.performed -= instance.OnThrow;
             @Throw.canceled -= instance.OnThrow;
-            @Primary.started -= instance.OnPrimary;
-            @Primary.performed -= instance.OnPrimary;
-            @Primary.canceled -= instance.OnPrimary;
-            @Secondary.started -= instance.OnSecondary;
-            @Secondary.performed -= instance.OnSecondary;
-            @Secondary.canceled -= instance.OnSecondary;
-            @Tertiary.started -= instance.OnTertiary;
-            @Tertiary.performed -= instance.OnTertiary;
-            @Tertiary.canceled -= instance.OnTertiary;
             @Switch.started -= instance.OnSwitch;
             @Switch.performed -= instance.OnSwitch;
             @Switch.canceled -= instance.OnSwitch;
@@ -409,6 +478,24 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
+            @FirstSlot.started -= instance.OnFirstSlot;
+            @FirstSlot.performed -= instance.OnFirstSlot;
+            @FirstSlot.canceled -= instance.OnFirstSlot;
+            @SecondSlot.started -= instance.OnSecondSlot;
+            @SecondSlot.performed -= instance.OnSecondSlot;
+            @SecondSlot.canceled -= instance.OnSecondSlot;
+            @ThirdSlot.started -= instance.OnThirdSlot;
+            @ThirdSlot.performed -= instance.OnThirdSlot;
+            @ThirdSlot.canceled -= instance.OnThirdSlot;
+            @FourthSlot.started -= instance.OnFourthSlot;
+            @FourthSlot.performed -= instance.OnFourthSlot;
+            @FourthSlot.canceled -= instance.OnFourthSlot;
+            @FifthSlot.started -= instance.OnFifthSlot;
+            @FifthSlot.performed -= instance.OnFifthSlot;
+            @FifthSlot.canceled -= instance.OnFifthSlot;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -476,12 +563,15 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
-        void OnPrimary(InputAction.CallbackContext context);
-        void OnSecondary(InputAction.CallbackContext context);
-        void OnTertiary(InputAction.CallbackContext context);
         void OnSwitch(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnFirstSlot(InputAction.CallbackContext context);
+        void OnSecondSlot(InputAction.CallbackContext context);
+        void OnThirdSlot(InputAction.CallbackContext context);
+        void OnFourthSlot(InputAction.CallbackContext context);
+        void OnFifthSlot(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
