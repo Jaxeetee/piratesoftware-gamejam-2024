@@ -21,10 +21,9 @@ public class CursorPosition : MonoBehaviour
     private Camera _mainCam;
     private InputManager _inputs;
     private Vector2 _mouseInputPosition;
-    private Vector3 _vector3MousePosition;
+
     private void Awake()
     {
-        
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _inputs = FindObjectOfType<InputManager>();
     }
@@ -70,7 +69,6 @@ public class CursorPosition : MonoBehaviour
         if (IsInputNull()) return;
 
         _mouseInputPosition = axis;
-        _vector3MousePosition = new Vector3(axis.x, axis.y, 0);
     }
 
 }

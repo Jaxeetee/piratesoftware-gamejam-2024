@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &43815566663615048
 Transform:
   m_ObjectHideFlags: 0
@@ -99,5 +99,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxRange: 5
   _radiusEffect: 1
+  _throwablePotion: {fileID: 0}
+  _immuneLayerMask:
+    serializedVersion: 2
+    m_Bits: 12087
+  _affectedLayerMask:
+    serializedVersion: 2
+    m_Bits: 4096
+  _poolKey: air_potion_projectiles
   _damage: 5
-  _damageType: 3

@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6793721317454058997
 Transform:
   m_ObjectHideFlags: 0
@@ -99,3 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxRange: 5
   _radiusEffect: 1
+  _throwablePotion: {fileID: 4292533418107285689, guid: bf51e0806214859498f4e82862b8a7ed, type: 3}
+  _affectedLayerMask:
+    serializedVersion: 2
+    m_Bits: 8192
+  _poolKey: healing_potion_projectile
+  _healAmount: 5

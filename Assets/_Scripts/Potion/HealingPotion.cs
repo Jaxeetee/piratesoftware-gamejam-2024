@@ -1,25 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+using MyUtils;
 using UnityEngine;
 
 public class HealingPotion : Potion
 {
     [SerializeField]
+    private float _healAmount = 5;
 
-    // Start is called before the first frame update
-    void Start()
+    protected override void Throw(Vector3 destination)
     {
+        Debug.Log($"Potion: {this.name}");
+        //TODO INSTANTIATE PROJECTILE
+        GameObject projectile = ObjectPoolManager.GetObject(_poolKey);
+        projectile.GetComponent<Projectile>().InitStats(_poolKey, _healAmount, HitType.HEAL, transform.position, destination, _affectedLayerMask);
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    protected override void Throw()
-    {
-        throw new System.NotImplementedException();
-    }
+
+    
 }
