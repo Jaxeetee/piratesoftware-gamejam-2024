@@ -21,9 +21,7 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private float radius = 2;
 
-    [SerializeField]
     private LayerMask _hitMask;
-    [SerializeField]
     private LayerMask _immuneHitMask;
 
     private float _hitValue; // stores the amount 
@@ -75,7 +73,7 @@ public class Projectile : MonoBehaviour
 
     private void OnEnd()
     {
-        ObjectPoolManager.ReturnToPool(_poolKey, this.gameObject);
+        ObjectPoolManager.Instance.ReturnToPool(_poolKey, this.gameObject);
     }
 
     private IEnumerator GoToDestination()

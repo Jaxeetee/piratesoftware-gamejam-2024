@@ -24,7 +24,6 @@ public class EquipController : MonoBehaviour
         set => _currentSlotEquipped = Mathf.Clamp(value, 1, 5);
     }
 
-    private Vector3 _mousePos;
     private Potion _activePotion;
     private void Awake()
     {
@@ -56,14 +55,22 @@ public class EquipController : MonoBehaviour
 
     private void GetPotion()
     {
-        _potions[_currentSlotEquipped - 1].gameObject.SetActive(true);
-        _activePotion = _potions[_currentSlotEquipped - 1].GetComponent<Potion>();
+        _potions[currentSlotEquipped - 1].gameObject.SetActive(true);
+        if (currentSlotEquipped == 5)
+        {
+            _activePotion = _potions[currentSlotEquipped - 1].gameObject.GetComponent<HealingPotion>();
+            
+        }
+        else 
+        {
+            _activePotion = _potions[currentSlotEquipped - 1].gameObject.GetComponent<DamagePotion>();
+        }
     }
 
     //* temp
     private void RemovePotion()
     {
-        _potions[_currentSlotEquipped - 1].gameObject.SetActive(false);
+        _potions[currentSlotEquipped - 1].gameObject.SetActive(false);
     }
 
 #region -== INPUTS ==-
@@ -105,7 +112,6 @@ public class EquipController : MonoBehaviour
     {
         if (_inputs == null || value == 0) return; 
         
-        //TODO pass in the mouse pos
         _activePotion.onThrowDelegate?.Invoke(_mouse.position);
     }
 

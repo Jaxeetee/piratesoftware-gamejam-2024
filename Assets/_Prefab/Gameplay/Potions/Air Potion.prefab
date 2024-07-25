@@ -99,10 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxRange: 5
   _radiusEffect: 1
-  _throwablePotion: {fileID: 0}
-  _immuneLayerMask:
-    serializedVersion: 2
-    m_Bits: 12087
+  _throwablePotion: {fileID: 9090058015052274787, guid: ba1fecfb1147b5f4d856d7d810b633ac, type: 3}
   _affectedLayerMask:
     serializedVersion: 2
     m_Bits: 4096

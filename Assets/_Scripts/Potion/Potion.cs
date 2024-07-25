@@ -22,9 +22,14 @@ public abstract class Potion : MonoBehaviour
     public delegate void OnThrowDelegate(Vector3 destination);
     public OnThrowDelegate onThrowDelegate;
 
+
+    private void Start()
+    {
+        ObjectPoolManager.Instance.CreatePool(_poolKey, _throwablePotion.gameObject, this.gameObject);
+    }
+
     private void OnEnable()
     {
-        ObjectPoolManager.CreatePool(_poolKey, _throwablePotion.gameObject, this.gameObject);
         onThrowDelegate = Throw;
     }
     protected abstract void Throw(Vector3 destination);
