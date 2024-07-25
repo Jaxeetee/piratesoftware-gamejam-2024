@@ -34,11 +34,11 @@ public class Projectile : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        CastExplosion();
-    }
+    // // Update is called once per frame
+    // void Update()
+    // {
+    //     CastExplosion();
+    // }
 
     private void CastExplosion()
     {
