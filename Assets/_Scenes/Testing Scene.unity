@@ -147,34 +147,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 100667972}
-  - component: {fileID: 100667971}
+  - component: {fileID: 100667973}
   m_Layer: 0
-  m_Name: test radius
+  m_Name: -- SPLASH TEST GO --
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &100667971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100667970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b839d31613059314488935e5f1cfec49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rayCount: 50
-  radius: 0.5
-  _hitMask:
-    serializedVersion: 2
-    m_Bits: 256
-  _immuneHitMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!4 &100667972
 Transform:
   m_ObjectHideFlags: 0
@@ -190,6 +170,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &100667973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100667970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c39fd22238dfee418d843c0e6aefb77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayCount: 32
+  radius: 1
+  collider2Ds: []
+  collider2D1s: []
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  testMask:
+    serializedVersion: 2
+    m_Bits: 256
+  amount: 0
 --- !u!1 &175754712
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 433816593}
   - component: {fileID: 433816594}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Rotation Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -897,7 +900,7 @@ GameObject:
   - component: {fileID: 1508940932}
   - component: {fileID: 1508940929}
   - component: {fileID: 1508940933}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -984,7 +987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f25690a1fce28d41a4ebf88f7bec186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 5
+  _movementSpeed: 3
   _dashSpeed: 50
   _dashDistance: 3
   _dashCooldown: 4
@@ -1178,7 +1181,7 @@ GameObject:
   - component: {fileID: 2038287253}
   - component: {fileID: 2038287255}
   - component: {fileID: 2038287256}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1269,7 +1272,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258627c8c6487a74e8c8c14f5c0b8eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _throwRange: 5
+  _throwRange: 1
+  _mouse: {fileID: 1686045896}
   _potions:
   - {fileID: 66443354}
   - {fileID: 462726899}
@@ -1300,6 +1304,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2038287253}
     m_Modifications:
+    - target: {fileID: 2927996323160459952, guid: 149162cb6b9ccac479896266a307ca70, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6998138764373483986, guid: 149162cb6b9ccac479896266a307ca70, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1356,6 +1364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire Potion
       objectReference: {fileID: 0}
+    - target: {fileID: 9189179437279946984, guid: 149162cb6b9ccac479896266a307ca70, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1369,6 +1381,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2038287253}
     m_Modifications:
+    - target: {fileID: 2014966732669316900, guid: c7a6563282a333942823f897c506593e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3314556416614627583, guid: c7a6563282a333942823f897c506593e, type: 3}
       propertyPath: _immuneLayerMask.m_Bits
       value: 14080
@@ -1376,6 +1392,10 @@ PrefabInstance:
     - target: {fileID: 4630695655041867238, guid: c7a6563282a333942823f897c506593e, type: 3}
       propertyPath: m_Name
       value: Earth Potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630695655041867238, guid: c7a6563282a333942823f897c506593e, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8192710378851945117, guid: c7a6563282a333942823f897c506593e, type: 3}
       propertyPath: m_LocalScale.x
@@ -1498,6 +1518,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Air Potion
       objectReference: {fileID: 0}
+    - target: {fileID: 485516381529239355, guid: 4a88080931f26c84e81b2e254c526456, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8644631406888749188, guid: 4a88080931f26c84e81b2e254c526456, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1514,6 +1542,10 @@ PrefabInstance:
     - target: {fileID: 95260248944877863, guid: 7d61d479be782034a99e0cf2e231a123, type: 3}
       propertyPath: m_Name
       value: Water Potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 95260248944877863, guid: 7d61d479be782034a99e0cf2e231a123, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3262120886863093109, guid: 7d61d479be782034a99e0cf2e231a123, type: 3}
       propertyPath: m_LocalScale.x
@@ -1567,6 +1599,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5903801680859635034, guid: 7d61d479be782034a99e0cf2e231a123, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1580,6 +1616,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2038287253}
     m_Modifications:
+    - target: {fileID: 5651293924579181679, guid: 1d2803ce910638846964df35495dc41d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6793721317454058997, guid: 1d2803ce910638846964df35495dc41d, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1647,6 +1687,10 @@ PrefabInstance:
     - target: {fileID: 8161441222093205794, guid: 1d2803ce910638846964df35495dc41d, type: 3}
       propertyPath: m_Name
       value: Healing Potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 8161441222093205794, guid: 1d2803ce910638846964df35495dc41d, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

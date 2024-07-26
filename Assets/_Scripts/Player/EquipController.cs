@@ -53,6 +53,13 @@ public class EquipController : MonoBehaviour
         _inputs.onMouseClicked -= ThrowInput;
     }
 
+    void OnDrawGizmos()
+    {
+        var direction =  _mouse.position- transform.position;
+        direction.Normalize();
+        Gizmos.DrawLine(transform.position, _mouse.position);
+    }
+
     private void GetPotion()
     {
         _potions[currentSlotEquipped - 1].gameObject.SetActive(true);
@@ -112,7 +119,7 @@ public class EquipController : MonoBehaviour
     {
         if (_inputs == null || value == 0) return; 
         
-        _activePotion.onThrowDelegate?.Invoke(_mouse.position);
+        _activePotion.onThrowDelegate?.Invoke(_mouse.position, _throwRange);
     }
 
 

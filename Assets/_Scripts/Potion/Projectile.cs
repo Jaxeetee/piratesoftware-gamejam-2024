@@ -28,6 +28,7 @@ public class Projectile : MonoBehaviour
     private HitType _hitType;
 
     private Vector3 _destination;
+    private Vector3 _direction;
     private Vector3 _startPoint;
     void Start()
     {
@@ -40,56 +41,52 @@ public class Projectile : MonoBehaviour
     //     CastExplosion();
     // }
 
-    private void CastExplosion()
-    {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, radius, _hitMask);
-
-        for (int i = 0; i < hits.Length; i++)
-        {
-            // float angle = i * (360f / rayCount) * Mathf.Deg2Rad;
-            // Vector2 dir = new Vector2(transform.position.x + Mathf.Cos(angle), transform.position.y + Mathf.Sin(angle));
-            var hit = Physics2D.RaycastAll(transform.position, hits[i].transform.position, radius, _hitMask);
-            
-            Debug.DrawLine(transform.position,  hits[i].transform.position, Color.red);
-            foreach(var hit2 in hit)
-            {
-                Debug.DrawLine(transform.position,  hit2.transform.position, Color.green);
-            }
-            // if (hit.collider != null)
-            // {
-            //     Debug.DrawLine(transform.position, hit.point , Color.white); // For visualization
-            //     // Do something with the hit object
-            // }
-        }
-    }
-
     private void OnSplash()
     {
-        //TODO Commit wizardry
-        //* prolly when this projectile hits the location.
-        //* this object just travels towards the hitpoint.
-        //* Might just use Start Coroutine/async tasks
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, radius, _hitMask);
+        
+        for (int i = 0; i < rayCount; i++)
+        {
+            float angle = i * (360f / rayCount) * Mathf.Deg2Rad;
+            Vector2 dir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, radius, _hitMask);
+
+            if (hit.collider != null)   
+            {
+                // give damage here
+            }
+        }
+        Despawn();
     }
 
-    private void OnEnd()
+    private void Despawn()
     {
         ObjectPoolManager.Instance.ReturnToPool(_poolKey, this.gameObject);
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer != 0 && other.gameObject.layer != 13)
+        {   
+            OnSplash();   
+        }
+    }
     private IEnumerator GoToDestination()
     {
         var elapsed = 0.0f; 
+
         while (Vector2.Distance(transform.position, _destination) > .01f)
         {
-            elapsed += Time.deltaTime * .5f;
-            //Debug.Log(elapsed);
+            elapsed += Time.deltaTime * 10f;
+
             transform.position = Vector2.Lerp(_startPoint, _destination, elapsed);
             yield return null;
         }
-        OnEnd();
+        OnSplash();
     }
 
-    public void InitStats(string poolKey, float hitValue, HitType hitType,Vector3 startPoint ,Vector3 destination, LayerMask hitMask)
+    public void InitStats(string poolKey, float hitValue, HitType hitType, float maxRange, Vector3 startPoint ,Vector3 direction, LayerMask hitMask)
     {
         _poolKey = poolKey;
 
@@ -98,8 +95,8 @@ public class Projectile : MonoBehaviour
         _hitMask = hitMask; // Objects that are targetted by the splash damage
         _immuneHitMask = ~ ( 1 << hitMask); // Objects that are immune to the splash damage
         
-        _startPoint = startPoint;
-        _destination = destination; // final destination of the projectile
+        _startPoint = startPoint + (direction / 5);
+        _destination = startPoint + direction * maxRange; // final destination of the projectile
         Debug.Log($"start point: {_startPoint} | destination: {_destination}");
         StartCoroutine(GoToDestination());
     }

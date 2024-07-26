@@ -19,7 +19,7 @@ public abstract class Potion : MonoBehaviour
 
     [SerializeField]
     protected string _poolKey;
-    public delegate void OnThrowDelegate(Vector3 destination);
+    public delegate void OnThrowDelegate(Vector3 mousePosition, float maxThrowingDistance);
     public OnThrowDelegate onThrowDelegate;
 
 
@@ -32,6 +32,6 @@ public abstract class Potion : MonoBehaviour
     {
         onThrowDelegate = Throw;
     }
-    protected abstract void Throw(Vector3 destination);
+    protected abstract void Throw(Vector3 mousePosition, float maxThrowingDistance);
 
 }

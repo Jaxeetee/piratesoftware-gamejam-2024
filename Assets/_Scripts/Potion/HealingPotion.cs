@@ -6,6 +6,8 @@ public class HealingPotion : Potion
     [SerializeField]
     private float _healAmount = 5;
 
+    Vector3 _dir;
+    Vector3 _mousePos;
 
     private void OnEnable()
     {
@@ -16,12 +18,23 @@ public class HealingPotion : Potion
     {
         ObjectPoolManager.Instance.CreatePool(_poolKey, _throwablePotion.gameObject, this.gameObject);
     }
-    protected override void Throw(Vector3 destination)
+    protected override void Throw(Vector3 mousePosition, float maxThrowingDistance)
     {
-        Debug.Log($"Potion: {this.name}");
+        Vector3 dir = mousePosition - transform.position;
+        dir.Normalize();
+        Debug.Log($"Potion: {dir} | mousePosition: {mousePosition}");
+        _mousePos = mousePosition;
         //TODO INSTANTIATE PROJECTILE
         GameObject projectile = ObjectPoolManager.Instance.GetObject(_poolKey);
-        projectile.GetComponent<Projectile>().InitStats(_poolKey, _healAmount, HitType.HEAL, transform.position, destination, _affectedLayerMask);
+        Projectile thrownPotion = projectile.GetComponent<Projectile>();
+        thrownPotion.InitStats(
+            _poolKey, 
+            _healAmount, 
+            HitType.HEAL, 
+            maxThrowingDistance, 
+            transform.position, 
+            dir,
+            _affectedLayerMask);
         
     }
 

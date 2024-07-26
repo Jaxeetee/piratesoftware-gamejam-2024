@@ -5,17 +5,28 @@ public class DamagePotion : Potion
 {
     [SerializeField]
     private float _damage;
+
     private void OnEnable()
     {
         onThrowDelegate = Throw;
     }
 
-    protected override void Throw(Vector3 destination)
+
+    protected override void Throw(Vector3 mousePosition,float maxThrowingDistance)
     {
-        // spawn a throwable potion
-        Debug.Log($"Potion: {this.name}");
+        var dir = mousePosition - transform.position;
+        dir.Normalize();
         GameObject projectile = ObjectPoolManager.Instance.GetObject(_poolKey);
-        projectile.GetComponent<Projectile>().InitStats(_poolKey, _damage, HitType.DAMAGE, transform.position, destination, _affectedLayerMask);
+        Projectile thrownPotion = projectile.GetComponent<Projectile>();
+
+        thrownPotion.InitStats(
+            _poolKey, 
+            _damage, 
+            HitType.DAMAGE, 
+            maxThrowingDistance,
+            transform.position, 
+            dir, 
+            _affectedLayerMask);
     }
 
 
