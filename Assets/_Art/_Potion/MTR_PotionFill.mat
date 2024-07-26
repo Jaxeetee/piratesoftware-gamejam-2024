@@ -43,6 +43,6 @@ Material:
     m_Ints: []
     m_Floats:
     - _frequency: 1
-    - _potionLiquidFill: -1.07
+    - _potionLiquidFill: -2.11
     m_Colors: []
   m_BuildTextureStacks: []

@@ -28,19 +28,7 @@ public class Projectile : MonoBehaviour
     private HitType _hitType;
 
     private Vector3 _destination;
-    private Vector3 _direction;
     private Vector3 _startPoint;
-    void Start()
-    {
-        
-    }
-
-    // // Update is called once per frame
-    // void Update()
-    // {
-    //     CastExplosion();
-    // }
-
     private void OnSplash()
     {
 
