@@ -101,7 +101,7 @@ public class EquipController : MonoBehaviour
         {
             
 #if UNITY_EDITOR
-            Debug.Log($"Current slow equipped value: {currentSlotEquipped}");
+            Debug.Log($"Current slot equipped value: {currentSlotEquipped}");
 #endif
         }
     }

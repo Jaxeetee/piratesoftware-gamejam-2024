@@ -1,6 +1,15 @@
+using UnityEngine;
+
 public class Player : EntityDamageable
 {
     InputManager _inputs;
+
+    public float actualHealth 
+    {
+        get => _currentHealth;
+        set => _currentHealth = Mathf.Clamp(value, 0, 20);
+        
+    }
 
     private void Awake()
     {
@@ -24,17 +33,17 @@ public class Player : EntityDamageable
 
     public override void ReceiveDamage(float damage)
     {
-        _currentHealth -= damage;
+        actualHealth -= damage;
 
-        if (_currentHealth < 0) Die();
+        if (actualHealth < 0) Die();
     }
 
     public override void Heal(float healAmount)
     {
-        _currentHealth += healAmount;
+        actualHealth += healAmount;
     }
 
-    #region -== INPUTS ==-
+#region -== INPUTS ==-
     private void PauseInput(float value)
     {
         if (_inputs == null || value == 0) return;

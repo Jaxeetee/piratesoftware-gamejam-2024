@@ -4,6 +4,7 @@ public abstract class EntityDamageable : MonoBehaviour, IDamageable
 {
     [SerializeField]
     private float _startHealth = 20;
+    
     protected float _currentHealth;
 
     private void Start()

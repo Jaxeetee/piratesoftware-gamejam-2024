@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using MyUtils;
@@ -19,7 +20,7 @@ public class Projectile : MonoBehaviour
     private int rayCount = 25;
 
     [SerializeField]
-    private float radius = 2;
+    private float _radius = 1;
 
     private LayerMask _hitMask;
     private LayerMask _immuneHitMask;
@@ -32,20 +33,36 @@ public class Projectile : MonoBehaviour
     private void OnSplash()
     {
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, radius, _hitMask);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, _radius, _hitMask);
+        if (_hitType == HitType.HEAL)
+        {
+            if (hits.Length > 0)
+            {
+                Debug.Log(hits[0].name);
+                hits[0].GetComponent<Player>().Heal(_hitValue);
+            }
+        }
         
+
         for (int i = 0; i < rayCount; i++)
         {
             float angle = i * (360f / rayCount) * Mathf.Deg2Rad;
             Vector2 dir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, radius, _hitMask);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, _radius, _hitMask);
 
             if (hit.collider != null)   
             {
-                // give damage here
+                if (_hitType == HitType.DAMAGE)
+                    hit.collider.GetComponent<EntityDamageable>().ReceiveDamage(_hitValue);
+                
             }
         }
         Despawn();
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(transform.position, _radius);
     }
 
     private void Despawn()
@@ -74,7 +91,7 @@ public class Projectile : MonoBehaviour
         OnSplash();
     }
 
-    public void InitStats(string poolKey, float hitValue, HitType hitType, float maxRange, Vector3 startPoint ,Vector3 direction, LayerMask hitMask)
+    public void InitStats(string poolKey, float hitValue, HitType hitType, float maxRange, float radius, Vector3 startPoint ,Vector3 direction, LayerMask hitMask)
     {
         _poolKey = poolKey;
 
@@ -82,10 +99,11 @@ public class Projectile : MonoBehaviour
         _hitType = hitType; 
         _hitMask = hitMask; // Objects that are targetted by the splash damage
         _immuneHitMask = ~ ( 1 << hitMask); // Objects that are immune to the splash damage
-        
+        _radius = radius;
+
         _startPoint = startPoint + (direction / 5);
         _destination = startPoint + direction * maxRange; // final destination of the projectile
-        Debug.Log($"start point: {_startPoint} | destination: {_destination}");
+
         StartCoroutine(GoToDestination());
     }
 

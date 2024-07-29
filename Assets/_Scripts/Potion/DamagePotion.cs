@@ -24,6 +24,7 @@ public class DamagePotion : Potion
             _damage, 
             HitType.DAMAGE, 
             maxThrowingDistance,
+            _radiusEffect,
             transform.position, 
             dir, 
             _affectedLayerMask);
