@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MyUtils;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,6 +9,8 @@ public class Enemy : EntityDamageable
 {
     [SerializeField]
     private float _enemyHealth = 50f;
+    [SerializeField]
+    private float _turnHeadSpeed = .25f;
 
     private float enemyHealth 
     {
@@ -16,6 +19,8 @@ public class Enemy : EntityDamageable
     }
     private Transform _player;
     private NavMeshAgent _agent;
+
+    private string _poolKey;
 
     private float _refreshRate = .25f;
     private WaitForSeconds _waitForSeconds;
@@ -37,10 +42,13 @@ public class Enemy : EntityDamageable
     {
         while(_player != null)
         {
-            // var direction = _player.position - transform.position;
-            // direction.Normalize();
-            // float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            // transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+
+            Vector3 direction = _agent.velocity.normalized;
+            direction.Normalize();
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Quaternion targetRot = Quaternion.Euler(Vector3.forward * angle);  
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, _turnHeadSpeed * Time.deltaTime);
+            
             _agent.SetDestination(_player.position);
             yield return _waitForSeconds;
         }
@@ -48,7 +56,7 @@ public class Enemy : EntityDamageable
 
     public override void Die()
     {
-        Debug.Log($"name: {gameObject.name} died!");
+        ObjectPoolManager.Instance.ReturnToPool(_poolKey, this.gameObject);
     }
 
     public override void ReceiveDamage(float damage)
@@ -63,11 +71,11 @@ public class Enemy : EntityDamageable
 
     public override void Heal(float healAmount)
     {
-        throw new NotImplementedException();
+       
     }
 
-    private void Initialize(string poolKey)
+    public void Initialize(string poolKey)
     {
-
+        _poolKey = poolKey;
     }
 }

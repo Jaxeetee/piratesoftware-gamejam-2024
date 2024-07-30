@@ -10,18 +10,22 @@ public class EnemySpawnManager : MonoBehaviour
 
     [SerializeField]
     private int _startSpawnAmount = 5;
+    [SerializeField]
+    private float _spawnFrequency = 0.25f;
 
-    private int _currentAmount = 0;
-
+    private int _aliveEnemiesCount = 0;
     public int currentEnemyCount 
     {
-        get => _currentAmount;
-        set => _currentAmount = Mathf.Clamp(value, 0, 999);
+        get => _aliveEnemiesCount;
+        set => _aliveEnemiesCount = Mathf.Clamp(value, 0, 999);
     }
     private int _enemyPerRound;
 
     [SerializeField]
     private float _startTimer = 3f;
+
+    [SerializeField]
+    private List<Transform> _spawnPoints;
 
     [SerializeField]
     private Enemy[] _enemies = new Enemy[4];
@@ -36,34 +40,48 @@ public class EnemySpawnManager : MonoBehaviour
 
     private void Start()
     {
-        _currentAmount = _startSpawnAmount;
-        _enemyPerRound = _currentAmount;
+        _aliveEnemiesCount = _startSpawnAmount;
+        _enemyPerRound = _aliveEnemiesCount;
         for (int i = 0; i < _enemies.Length; i++)
         {
             ObjectPoolManager.Instance.CreatePool(poolKeys[i], _enemies[i].gameObject, this.gameObject);
         }
     }
 
-    private void EliminateEnemy()
+    private void Update()
     {
-
+        if (_doStartRound)
+        {
+            StartCoroutine(StartRound());
+        }
     }
 
     private IEnumerator StartRound()
     {
+        _doStartRound = false;
         float elapsedTime = _startTimer;
         _enemyPerRound += 5;
-        _currentAmount = _enemyPerRound;
+        _aliveEnemiesCount = _enemyPerRound;
         while (elapsedTime > 0.0f)
         {
             elapsedTime -= Time.deltaTime;
             yield return null;
         }
+        StartCoroutine(SpawnEnemies());
     }
 
     private IEnumerator SpawnEnemies()
     {
         
-        yield return null;
+        while (currentEnemyCount > 0)
+        {
+            int nextToSpawn = Random.Range(0, 4);
+            yield return new WaitForSeconds(_spawnFrequency);
+            GameObject enemy = ObjectPoolManager.Instance.GetObject(poolKeys[nextToSpawn]);
+            enemy.GetComponent<Enemy>().Initialize(poolKeys[nextToSpawn]);
+            
+            enemy.transform.position = _spawnPoints[Random.Range(0,_spawnPoints.Count)].position;
+            currentEnemyCount--;
+        }
     }
 }
