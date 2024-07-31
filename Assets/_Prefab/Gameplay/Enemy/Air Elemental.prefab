@@ -51,6 +51,8 @@ MonoBehaviour:
   _startHealth: 20
   _enemyHealth: 50
   _turnHeadSpeed: 100
+  _attackCooldown: 1
+  _distanceToAttack: 1
 --- !u!212 &5430045917609731053
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -132,7 +134,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
